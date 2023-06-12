@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema)
 
+app.get('/', (req,res)=>{
+    res.send('hii')
+})
+
 app.post('/register', (req, res) => {
     const { name, email, password } = req.body;
     User.findOne({ email: email }).then(async (savedUser) => {
